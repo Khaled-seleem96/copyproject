@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/util.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     
@@ -28,9 +28,40 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav " style="direction: rtl;" >
                         <!-- Authentication Links -->
+                        @guest
                         <li class="nav-item">
                             <a class="nav-link text btn" href="{{route('login')}}" style="font-size: 10px;color: wheat !important;opacity: 0.7;" >تسجيل الدخول                                </a>
                         </li> 
+                            
+                        @else
+                            <li class="dropdown navbar-nav">
+                                <a href="#" class="dropdown-toggle nav-link text btn" style="color:white !important" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu ">
+                                    <li>
+                                        <a  class="nav-link text btn" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                    
+                                        <li class="nav-item">
+                                            <a class="nav-link text btn" href="{{(Auth::user()->role==1)?route('home'):route('profile')}}" style="font-size: 10px;color: wheat !important;opacity: 0.7;" >الصفحه الشخصيه </a>
+                                        </li> 
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                                
+                                <li class="nav-item" >
+                                <a class="nav-link text" href="{{url('/reservation')}}" style="font-size: 16px;margin-right: 5px;" >احجز الان</a>
+                            </li>   
+                            
+                            </li>
+                        @endguest
 
                         <li class="nav-item">
 
@@ -56,7 +87,7 @@
             <div class="main-footer widgets-dark typo-light">
             <div class="container">
             <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="col-12 col-sm-12 col-md-3">
             <div class="widget subscribe no-box">
             <h5 class="widget-title" style="text-align: center;"><img src="img/logo.png" alt="logo" width="20%"></h5>
             <p class="tsec1" style="font-size: 12px;color: #ebba41;">التميز بتفاصيل التصميم وتنفيذ
@@ -65,9 +96,10 @@
             </div>
             </div>
             
-            <div class="col-xs-6 col-sm-6 col-md-4" style="justify-content: center;display: flex;">
+            <div class="col-6 col-sm-6 col-md-4" style="justify-content: center;display: flex;padding-top:20px;border-radius:20px">
             <div class="widget no-box">
-            <h5 class="widget-title">روابط سريعة<span></span></h5>
+            <h5 class="widget-title">روابط سريعة</h5>
+            <hr style="border: solid 1px white"> 
             <ul class="thumbnail-widget">
             <li>
             <div><a href="{{url('/')}}" class="text">الرئيسية</a></div>	
@@ -81,20 +113,21 @@
             </ul>
             </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4" style="justify-content:center;display: flex;">
-            <div class="widget no-box" >
-            <h5 class="widget-title" >اتصل بنا<span></span></h5>          
-            <p class="text" style="margin-left: 30px;position: relative;">0505563337</p>
-            <img src="img/phone.png" style="bottom: 30px;position: relative;">
-            <p  class="text" style="margin-left: 30px;bottom: 40px;position: relative;">0555024466</p>
+        <div class="col-6 col-sm-6 col-md-4" style="justify-content:center;display: flex;background:rgba(235, 186, 65,0.1);padding-top:20px;border-radius:20px">
+        <div class="widget no-box" >
+            <h5 class="widget-title" style="text-align:center" >اتصل بنا</h5>
+            <hr style="border: solid 1px white;border-radius:20px">          
+            <p class="text" style="margin-left: 30px;position: relative;color:white !important">0505563337</p>
+            <img src="img/phone.png" style="bottom: 30px;position: relative;right:20px" width="30px">
+            <p  class="text" style="margin-left: 30px;bottom: 40px;position: relative;color:white !important">0555024466</p>
             <ul class="social-footer2">
             <a style="color: white;size: 20px;" title="pinterest" target="_blank" href="https://www.pinterest.com/janahalamirah"><img src="img/pinterest .png" width="30" height="30"></a>
             <a href="https://www.facebook.com/janahalamirah" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="img/facebook.png"></a>
             <a href="https://twitter.com/janahalamirah" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="img/twitter.png"></a>
             <a title="instagram" target="_blank" href="https://www.instagram.com/janahalamirah/"><img alt="instagram" width="30" height="30" src="img/instagram.png"></a>
             </ul>
-            </div>
-            </div>
+        </div>
+        </div>
             </div>
             </div>
             </div>
@@ -111,8 +144,8 @@
             <!-- END SECTION FOOTER -->
     </div>  
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="{{asset('js/script.js') }}"></script>
+    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('js/app.js') }}"></script>
 </body>
 </html>

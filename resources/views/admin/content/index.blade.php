@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="col-md-8 col-8" style="margin-top: 50px;">
+<div class="col-md-10 col-10" style="margin-top: 50px;">
             <div class="container section1" >
             <table class="table table-dark">
   <thead>

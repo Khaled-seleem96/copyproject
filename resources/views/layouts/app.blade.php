@@ -25,7 +25,7 @@
     <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark shadow-sm nav" >
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="#">
                     <img src="img/logo.png" alt="" width="80px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}" >
@@ -39,8 +39,10 @@
                     <ul class="navbar-nav " style="direction: rtl;" >
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text btn" href="{{route('login')}}" style="font-size: 10px;color: wheat !important;opacity: 0.7;" >تسجيل الدخول                                </a>
+                        </li> 
+                            
                         @else
                             <li class="dropdown navbar-nav">
                                 <a href="#" class="dropdown-toggle nav-link text btn" style="color:white !important" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -49,20 +51,26 @@
 
                                 <ul class="dropdown-menu ">
                                     <li>
-                                        <a  href="{{ route('logout') }}"
+                                        <a class="nav-link text btn"  href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+                                        <li class="nav-item">
+                                            <a class="nav-link text btn" href="{{(Auth::user()->role==1)?route('home'):route('profile')}}" style="font-size: 10px;color: wheat !important;opacity: 0.7;" >الصفحه الشخصيه </a>
+                                        </li>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
+                                        
                                     </li>
                                 </ul>
+                                
                             </li>
                         @endguest
-                        </ul>
+
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -70,12 +78,12 @@
             <div class="row" >
         @yield('content')
         @auth
-        <div class="col-4 col-md-4" style="margin-top: 100px;">
+        <div class="col-2 col-md-2" style="margin-top: 100px;">
                 <ul class="list-group">
                     <a href="{{route('content')}}" class="list-group-item bsec1 " style="width: 100%;" > <li style="list-style: none;text-align: right;" >تعديل المحتوي</li></a>
                     <a href="{{route('order')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >الحجوزات</li></a>
-                    <a href="#" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >حذف المستخدم</li></a>
-                    <a href="#" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >إنشاء المشرف</li></a>
+                    <a href="{{route('add')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >حذف المستخدم</li></a>
+                    <a href="{{route('addAdmin')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >إنشاء المشرف</li></a>
                   </ul>
             </div>
             @endauth

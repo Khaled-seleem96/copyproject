@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Content;
+use Illuminate\Support\Facades\Auth;
 use App\order;
+use App\User;
 class adminController extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('adminCheck');
+        
     }
     /**
      * Display a listing of the resource.
@@ -24,10 +28,31 @@ class adminController extends Controller
         return view('admin.content.index')->with('data',$x);
 
     }
+    public function addAdmin()
+    {
+        //
+        
+        return view('admin.add.addAdmin');
+
+    }
+    public function add()
+    {
+        //
+        $x=User::select('*')
+        ->where('role','=','0')
+        ->get();
+        return view('admin.add.index')->with('data',$x);
+
+    }
     public function order()
     {
         //
-        $x=order::all();
+        $x=order::select('*')
+        ->join('users','users.id','=','user_id')
+        ->orderByRaw('users.id')
+        ->get();
+        
+        
         return view('admin.orders.index')->with('data',$x);
 
     }
@@ -111,16 +136,17 @@ class adminController extends Controller
         
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
         $d=Content::findOrFail($id);
+        $d->delete();
+        return redirect()->back();
+    }
+    public function deleteuser($id)
+    {
+        //
+        $d=User::findOrFail($id);
         $d->delete();
         return redirect()->back();
     }
