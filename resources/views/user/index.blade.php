@@ -39,27 +39,84 @@
         <div class="container section1 "  data-aos="fade-up" >
             <div class="row">
                 <h1 class="text" style="width: 100%;text-align: center;padding-bottom: 20px;">الاقسام</h1>
-                <div class="col-md-6 " >
-                  <div class="card col-md-10 offset-md-2" style=" margin-top: 20px;">
-                      <br>
-                    <img class="card-img-top" src="img/d1.jpg" alt="Card image cap" style="height: 236px;">
-                    <div class="card-body">
-                      <h5 class="card-title text" style="direction: rtl;float: right;display: block;color: black !important">الديكور</h5>
-                      
-                      <a href="gallery.html" class="btn btn-primary bsec1" style="direction: rtl;float: left;">للمزيد</a>
-                   </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card col-md-10 " style="direction: rtl; margin-top: 20px;">
-                        <br>
-                    <img class="card-img-top" src="img/f1.jpg" alt="Card image cap" style="height: 236px;" >
-                    <div class="card-body" style="direction: rtl;">
-                      <h5 class="card-title text" style="direction: rtl;float: right;color: black !important">المفروشات</h5>
-                      <a href="gallery.html" class="btn btn-primary bsec1" style="direction: rtl;float: left;">للمزيد</a>
-                    </div>
-                    </div>
-                  </div>
+               
+                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner row w-100 mx-auto">
+      <div class="carousel-item col-md-4 active">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}" style="height: 200px;" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text cl">التصميم الداخلي</h4>
+            <p class="card-text text cl">نصمم منزل أحلامك وفق قيم جمالية تلامس خيالك</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{asset('img/g3.jpg')}}" style="height: 200px;" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text cl">التصميم الخارجي</h4>
+            <p class="card-text text cl">نقوم بإثراء واجهتك بتصاميم تضفي على المنزل نوعا من الفخامة والتميز</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{asset('img/g4.jpg')}}" style="height: 200px;" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text cl">التصميم التجاري</h4>
+            <p class="card-text text cl">نبتكر فنبدع في تصميم يعكس هويتك ويحقق راحتك وراحة عملائك</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{asset('img/g2.jpg')}}" style="height: 200px;" alt="Card image cap">
+          <div class="card-body" style="direction: rtl !important;">
+            <h4 class="card-title text cl">تصميم الحدائق</h4>
+            <p class="card-text text cl" style="direction: rtl !important;" >نصمم من لا شي جنة في منزلك لتنعم فيها بالهدوء والراحة والجمال
+اسكتشات
+</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{asset('img/f1.jpg')}}" style="height: 200px;" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text cl">إكسسوارات وتحف</h4>
+            <p class="card-text text cl">نختارها وننتقيها بعناية لكي نتميز بها ونصنع ماهو يخصنا</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{asset('img/g5.jpg')}}" style="height: 200px;" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text cl">اسكتشات</h4>
+            <p class="card-text text cl">إبداع الرسم الأولي الحر للإيصال فكرة للعميل للفراغ وتبسيط الفكرة  الإسكِتْش يعتبر من أهم المهارات </p>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
             </div>
         </div>
         <!-- END SECOND SECTION CATEGORY -->
@@ -68,7 +125,7 @@
                 <h3 class="text" style="direction: rtl; text-align: center;"><img  src="img/location.png">تواصل معنا <img  src="img/location.png"></h3>
                     <form class="form-group row" method="post" action="{{ action('guestController@store') }}">
                     {{csrf_field()}}
-                        <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
+                        <div class="col-md-6 col-sm-12" style="margin-top: 20px;direction: rtl !important;">
                             <input type="text" class="form-control" name="name" placeholder="اسم المستخدم" required style="width: 45%;display: inline-block;">
                             <input type="text" class="form-control" name="phone" placeholder="رقم الهاتف" required style="width: 45%;float: right;">
                             <br><br>
