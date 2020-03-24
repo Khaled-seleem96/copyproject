@@ -1,19 +1,16 @@
 <?php
 
-Route::get('/', function () {
-    return view('user.index');
 
-});
+Route::get('/','guestController@index')->name('index');
+Route::post('/guest','guestController@store');
 Route::get('/about', function () {
     return view('user.about');
 });
-Route::get('/gallery', function () {
-    return view('user.gallery');
-});
 
+Route::get('/gallery','guestController@gallery')->name('gallery');
 
 Auth::routes();
-Route::get('/profile','profileController@index')->name('profile');
+// admin Controller route
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/content/index','adminController@index')->name('content');
 Route::post('/admin/content/insert','adminController@store')->name('insert');
@@ -23,6 +20,15 @@ Route::get('/edit/{id}','adminController@edit')->name('edit');
 Route::post('/update/{id}','adminController@update')->name('update');
 Route::get('/admin/order/index','adminController@order')->name('order');
 Route::get('/deleteuser/{id}','adminController@deleteuser')->name('deleteuser');
+Route::get('/deletemsg/{id}','adminController@deleteuser')->name('deletemsg');
 Route::get('/admin/add/index','adminController@add')->name('add');
-Route::get('/admin/add/addAdmin','adminController@addAdmin')->name('addAdmin');
+Route::get('/admin/guest','adminController@msg')->name('msg');
+Route::get('/deleteguestmsg/{id}','adminController@deleteguestmsg')->name('deleteguestmsg');
+Route::post('/saveComment','adminController@updateOrderComment');
+// end route admin
+Route::get('/profile','profileController@index')->name('profile');
 Route::get('/reservation','profileController@create')->name('reser');
+Route::post('/reservation','profileController@update')->name('reserupdate');
+Route::get('/reservation/{id}','profileController@destroy')->name('deleteorder');
+
+

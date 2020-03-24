@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Closure;
 use Illuminate\Http\Request;
 use App\order;
+use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class profileController extends Controller
 {
     /**
@@ -26,7 +28,14 @@ class profileController extends Controller
     public function index()
     {
         //
-        return view('user.profile');
+        $x=DB::table('orders')
+        ->select('*','orders.id as orderId')
+        ->join('users','users.id','=','user_id')
+        ->where('users.id', Auth::user()->id)
+        
+        ->get();
+
+        return view('user.profile')->with('data',$x);
     }
 
     /**
@@ -37,7 +46,9 @@ class profileController extends Controller
     public function create()
     {
         //
-        return view('user.reservation');
+        $x=User::find(Auth::user()->id);
+
+        return view('user.reservation')->with('data',$x);
     }
 
     /**
@@ -60,6 +71,7 @@ class profileController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -80,9 +92,19 @@ class profileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $x=new order();
+        $x->user_id=$request->id;
+        $x->msg=$request->msg;
+        $x->save();
+        $z=User::find(Auth::user()->id);
+        $z->name=$request->name;
+        $z->address=$request->address;
+        $z->phone=$request->phone;
+        $z->save();
+        return redirect()->route('profile');
     }
 
     /**
@@ -94,5 +116,8 @@ class profileController extends Controller
     public function destroy($id)
     {
         //
+        $d=order::findOrFail($id);
+        $d->delete();
+        return redirect()->back();
     }
 }

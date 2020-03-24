@@ -1,5 +1,5 @@
 @extends('user.layouts.app')
-
+@section('title','About')
 @section('user')
 
     <style>

@@ -1,5 +1,5 @@
 @extends('user.layouts.app')
-
+@section('title','Register')
 @section('user')
             
             <div class="limiter">
@@ -22,7 +22,7 @@
                                     <input class="form-control" type="text" name="name" placeholder="الاسم" required>
                                     @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong  class="text">{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                                     <span class="focus-input100"></span>
@@ -30,11 +30,21 @@
                                 <div class="col-md-12">
                                     <span class="text" style="float: right;" >العنوان</span>
                                     <input class="form-control" type="text" name="address" placeholder="العنوان" required>
+                                    @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong  class="text">{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
                                     <span class="focus-input100"></span>
                                 </div>
                                 <div class="col-md-12">
                                     <span class="text" style="float: right;" >رقم الهاتف</span>
                                     <input class="form-control" type="text" name="phone" placeholder="رقم الهاتف" required>
+                                    @if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong  class="text">{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
                                     <span class="focus-input100"></span>
                                 </div>
         
@@ -43,7 +53,7 @@
                                 <input class="form-control" type="email" name="email" required placeholder="البريد الالكتروني">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong class="text">{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                                 <span class="focus-input100"></span>
@@ -54,7 +64,7 @@
                                 <input class="form-control" type="password" name="password" required placeholder="كلمة المرور">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong class="text">{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                                 <span class="focus-input100"></span>
@@ -64,7 +74,7 @@
                                 <input class="form-control" type="password" name="password_confirmation" required placeholder="كلمة المرور">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong class="text">{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                                 <span class="focus-input100"></span>

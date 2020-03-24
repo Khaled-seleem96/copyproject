@@ -1,5 +1,5 @@
 @extends('user.layouts.app')
-
+@section('title','Login')
 @section('user')
             
             
@@ -24,7 +24,7 @@
                                 <input class="form-control" type="email" required name="email" placeholder="البريد الالكتروني">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong class="text">{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                                 <span class="focus-input100"></span>
@@ -35,19 +35,20 @@
                                 <input class="form-control" type="password" required name="password" placeholder="كلمة المرور">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong  class="text">{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                                 <span class="focus-input100"></span>
-                            </div>
-        
-                            <input type="submit" value="الدخول" class="btn btn-primary bsec1" style="direction: rtl;margin-top: 20px;width: 100%;">
-        
-                                
-                        </form>
-                        <a href="{{route('register')}}" class="btn btn-primary bsec1" style="direction: rtl;margin-top: 20px;width: 100%;">
+                                <input type="submit" value="الدخول" class="btn btn-primary bsec1" style="direction: rtl;margin-top: 20px;width: 100%;">
+                            <a href="{{route('register')}}" class="btn btn-primary bsec1" style="direction: rtl;margin-top: 20px;width: 100%;">
                             مستخدم جديد
                         </a>
+                            </div>
+        
+                            
+                                
+                        </form>
+                        
                     </div>
                 </div>
             </div>

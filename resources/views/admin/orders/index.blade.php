@@ -10,25 +10,22 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">اسم المستخدم</th>
-      <th scope="col">العنوان</th>
       <th scope="col">رقم الهاتف</th>
       <th scope="col">البريد الالكتروني</th>
-      <th scope="col">المطلوب</th>
+
     </tr>
   </thead>
   <tbody>
   @foreach($data as $d)
 
     <tr> 
-      <td> {{$d->id}}</td>
+      <th> {{$d->orderId}}</th>
       <td> {{$d->name}}</td>
-      <td> {{$d->address}}</td>
       <td> {{$d->phone}}</td>
       <td> {{$d->email}}</td>
-      <td ><p style="width:70px">{{$d->msg}}</p></td>
-      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-id="{{$d->id}}" data-name="{{$d->name}}">
-  المزيد
-</button></td>
+      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="{{'#modal'.$d->orderId}}" > المزيد</button></td>
+      <td><a href="/deletemsg/{{$d->id}}" class="btn ">حذف</a></td>
+<td>{{($d->comment)?'Done':'No comment yet'}}</td>
     </tr>
     @endforeach
   </tbody>
@@ -36,26 +33,51 @@
             
             </div>
         </div>
-        <div class="modal fade" data-name="{{$d->name}}" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">الحجوزات</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>اسم العميل</p>
-        <p>{{$d->name}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
+
+        @foreach($data as $d)
+
+          <div class="modal fade" data-name="{{$d->name}}" id="{{'modal'.$d->orderId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">الحجوزات</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form method="post" action="{{ action('adminController@updateOrderComment') }}">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                  <h5 class="text" style="float: right;">اسم العميل</h5>
+                  <p class="text" >{{$d->name}}</p>
+                  <hr>
+                  <h5 class="text" style="float: right;">العنوان</h5>
+                  <p class="text" >{{$d->address}}</p>
+                  <hr>
+                  <h5 class="text" style="float: right;">رقم الهاتف</h5>
+                  <p class="text" >{{$d->phone}}</p>
+                  <hr>
+                  <h5 class="text" style="float: right;">المطلوب</h5>
+                  <br><br>
+                  <h4 class="" style="float: right;color:black !important">{{$d->msg}}</h4>
+                  <br><br>
+                  <input type="hidden" name="id" value='{{$d->orderId}}'>
+                  <hr>
+                  <h5 class="text" style="float: right;">أضف تعليق</h5>
+                  <br><br>
+                  <textarea  class="form-control" name="comment" cols="20" rows="10" placeholder="أضف تعليق" style="width: 100%;height:100px" required>{{@$d->comment}}</textarea>
+               </div>
+                <div style="margin:20px">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div> 
+                
+                </form>
+              </div>
+            </div>
+          </div>
+
+        @endforeach
 
 @endsection

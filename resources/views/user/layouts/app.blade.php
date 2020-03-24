@@ -3,10 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link rel="icon" href="{{asset('img/logo.png')}}" type="image/icon type">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     
 </head>
@@ -35,20 +37,20 @@
                             
                         @else
                             <li class="dropdown navbar-nav">
-                                <a href="#" class="dropdown-toggle nav-link text btn" style="color:white !important" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                <a href="#" class="dropdown-toggle nav-link text btn " style="color:white !important" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu ">
                                     <li>
-                                        <a  class="nav-link text btn" href="{{ route('logout') }}"
+                                        <a  class="nav-link text " href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-                                    
+                                        <hr>
                                         <li class="nav-item">
-                                            <a class="nav-link text btn" href="{{(Auth::user()->role==1)?route('home'):route('profile')}}" style="font-size: 10px;color: wheat !important;opacity: 0.7;" >الصفحه الشخصيه </a>
+                                            <a class="nav-link text " href="{{(Auth::user()->role==1)?route('home'):route('profile')}}"  >الصفحه الشخصيه </a>
                                         </li> 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -98,9 +100,9 @@
             
             <div class="col-6 col-sm-6 col-md-4" style="justify-content: center;display: flex;padding-top:20px;border-radius:20px">
             <div class="widget no-box">
-            <h5 class="widget-title">روابط سريعة</h5>
+            <h2 class="widget-title">روابط سريعة</h2>
             <hr style="border: solid 1px white"> 
-            <ul class="thumbnail-widget">
+            <ul class="thumbnail-widget"  style="text-align:center">
             <li>
             <div><a href="{{url('/')}}" class="text">الرئيسية</a></div>	
             </li>
@@ -115,11 +117,11 @@
             </div>
         <div class="col-6 col-sm-6 col-md-4" style="justify-content:center;display: flex;background:rgba(235, 186, 65,0.1);padding-top:20px;border-radius:20px">
         <div class="widget no-box" >
-            <h5 class="widget-title" style="text-align:center" >اتصل بنا</h5>
+            <h2 class="widget-title" style="text-align:center" >اتصل بنا</h2>
             <hr style="border: solid 1px white;border-radius:20px">          
-            <p class="text" style="margin-left: 30px;position: relative;color:white !important">0505563337</p>
+            <h4 class="text" style="margin-left: 30px;position: relative;color:white !important">0505563337</h4>
             <img src="img/phone.png" style="bottom: 30px;position: relative;right:20px" width="30px">
-            <p  class="text" style="margin-left: 30px;bottom: 40px;position: relative;color:white !important">0555024466</p>
+            <h4  class="text" style="margin-left: 30px;bottom: 40px;position: relative;color:white !important">0555024466</h4>
             <ul class="social-footer2">
             <a style="color: white;size: 20px;" title="pinterest" target="_blank" href="https://www.pinterest.com/janahalamirah"><img src="img/pinterest .png" width="30" height="30"></a>
             <a href="https://www.facebook.com/janahalamirah" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="img/facebook.png"></a>
@@ -147,5 +149,6 @@
     <script src="{{asset('js/script.js') }}"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/app.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
 </html>

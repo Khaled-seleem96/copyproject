@@ -8,7 +8,7 @@
             <form action="{{route('update',['id'=>$d->id])}}" method="post" enctype="multipart/form-data" >
             {{csrf_field()}}
             <img src="{{asset($d->img)}}" alt="" width='50px'>
-            <input name='img' type="file" class="form-control" placeholder='Enter Post Title' value='{{$d->img}}'>
+            <input name='img' type="file" class="form-control" placeholder='Enter Post Title'>
             <br><br>
             <input type="text" name="title" value='{{$d->title}}'>
             </form>

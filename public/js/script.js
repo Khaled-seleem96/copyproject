@@ -70,3 +70,18 @@ AOS.init(
         $(thisAlert).removeClass('alert-validate');
     }
 })(jQuery);
+//gallery///////
+$(document).ready(function(){
+    $(".fancybox").fancybox({
+          openEffect: "none",
+          closeEffect: "none"
+      });
+      
+      $(".zoom").hover(function(){
+          
+          $(this).addClass('transition');
+      }, function(){
+          
+          $(this).removeClass('transition');
+      });
+  });

@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>@yield('title')</title>
+    <link rel="icon" href="{{asset('img/logo.png')}}" type="image/icon type">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -45,19 +45,20 @@
                             
                         @else
                             <li class="dropdown navbar-nav">
-                                <a href="#" class="dropdown-toggle nav-link text btn" style="color:white !important" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                <a href="#" class="dropdown-toggle nav-link text btn " style="color:white !important" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu ">
                                     <li>
-                                        <a class="nav-link text btn"  href="{{ route('logout') }}"
+                                        <a class="nav-link text "  href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+                                        <hr>
                                         <li class="nav-item">
-                                            <a class="nav-link text btn" href="{{(Auth::user()->role==1)?route('home'):route('profile')}}" style="font-size: 10px;color: wheat !important;opacity: 0.7;" >الصفحه الشخصيه </a>
+                                            <a class="nav-link text " href="{{(Auth::user()->role==1)?route('home'):route('profile')}}" style="font-size: 10px" >الصفحه الشخصيه </a>
                                         </li>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -83,7 +84,8 @@
                     <a href="{{route('content')}}" class="list-group-item bsec1 " style="width: 100%;" > <li style="list-style: none;text-align: right;" >تعديل المحتوي</li></a>
                     <a href="{{route('order')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >الحجوزات</li></a>
                     <a href="{{route('add')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >حذف المستخدم</li></a>
-                    <a href="{{route('addAdmin')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >إنشاء المشرف</li></a>
+                    <a href="{{route('msg')}}" class="list-group-item bsec1" style="width: 100%;" > <li style="list-style: none;text-align: right;" >
+رسالة الضيوف</li></a>
                   </ul>
             </div>
             @endauth
