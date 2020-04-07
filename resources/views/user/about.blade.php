@@ -64,7 +64,7 @@
                         </p> 
                 </div>
                 <div class="col-md-6 " style="display: flex;justify-content: center;">
-                            <img src="img/first-section1.jpg" width="85%" alt="">
+                            <img src="img/sec.jpeg" height="400px" style="border-radius:20px" width="85%" alt="">
                 </div>
             </div>
         </div>

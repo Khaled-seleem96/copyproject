@@ -17,7 +17,7 @@
         <div class="container section1 "  data-aos="fade-down" >
             <div class="row">
                 <div class="col-12  col-lg-5 col-sm-12 col-xs-12">
-                    <img src="img/first-section1.jpg" width="100%" style=" justify-content: center ; display: flex;" class="imgsec1"  alt="">
+                    <img src="{{asset('img/sec.jpeg')}}" width="100%" height="400px" style=" justify-content: center ; display: flex;" class="imgsec1"  alt="">
                 </div>
                 <div class="col-12 col-lg-7 col-sm-12 " >
                     <br>
@@ -39,84 +39,191 @@
         <div class="container section1 "  data-aos="fade-up" >
             <div class="row">
                 <h1 class="text" style="width: 100%;text-align: center;padding-bottom: 20px;">الاقسام</h1>
-               
-                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner row w-100 mx-auto">
-      <div class="carousel-item col-md-4 active">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}" style="height: 200px;" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title text cl">التصميم الداخلي</h4>
-            <p class="card-text text cl">نصمم منزل أحلامك وفق قيم جمالية تلامس خيالك</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="{{asset('img/g3.jpg')}}" style="height: 200px;" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title text cl">التصميم الخارجي</h4>
-            <p class="card-text text cl">نقوم بإثراء واجهتك بتصاميم تضفي على المنزل نوعا من الفخامة والتميز</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="{{asset('img/g4.jpg')}}" style="height: 200px;" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title text cl">التصميم التجاري</h4>
-            <p class="card-text text cl">نبتكر فنبدع في تصميم يعكس هويتك ويحقق راحتك وراحة عملائك</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="{{asset('img/g2.jpg')}}" style="height: 200px;" alt="Card image cap">
-          <div class="card-body" style="direction: rtl !important;">
-            <h4 class="card-title text cl">تصميم الحدائق</h4>
-            <p class="card-text text cl" style="direction: rtl !important;" >نصمم من لا شي جنة في منزلك لتنعم فيها بالهدوء والراحة والجمال
-اسكتشات
-</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="{{asset('img/f1.jpg')}}" style="height: 200px;" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title text cl">إكسسوارات وتحف</h4>
-            <p class="card-text text cl">نختارها وننتقيها بعناية لكي نتميز بها ونصنع ماهو يخصنا</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="{{asset('img/g5.jpg')}}" style="height: 200px;" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title text cl">اسكتشات</h4>
-            <p class="card-text text cl">إبداع الرسم الأولي الحر للإيصال فكرة للعميل للفراغ وتبسيط الفكرة  الإسكِتْش يعتبر من أهم المهارات </p>
-            
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+  
+                <div class=" col-md-4 " >
+                  <div class="card" style="height:360px;margin-bottom: 10px;background:rgba(3, 4, 24,0.5);border: #ff8d1e 1px solid; ">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style=" border-bottom: #ff8d1e 1px solid;">
+                    <div class="carousel-inner" >
+                          <div class="carousel-item active">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}" style="height:200px;" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img-top img-fluid" src="{{asset('img/g2.jpg')}}"  style="height:200px;" alt="Second slide">
+                          </div>
+                  </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title text cl">التصميم الداخلي</h4>
+                      <br><br>
+                      <p class="card-text text cl">نصمم منزل أحلامك وفق قيم جمالية تلامس خيالك</p> 
+                      <br><br>
+                      <a href="{{url('/reservation')}}" class="btn btn-primary bsec1">للحجز</a>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+                
+                <div class=" col-md-4">
+                <div class="card" style="height:360px;margin-bottom: 10px;background:rgba(3, 4, 24,0.5);border: #ff8d1e 1px solid; ">
+                    <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel" style=" border-bottom: #ff8d1e 1px solid;">
+                    <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img-top img-fluid" src="{{asset('img/f1.jpg')}}" style="height:200px;" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img-top img-fluid" src="{{asset('img/g3.jpg')}}"  style="height:200px;" alt="Second slide">
+                          </div>
+                  </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title text cl">التصميم الخارجي</h4>
+                      <p class="card-text text cl">نقوم بإثراء واجهتك بتصاميم تضفي على المنزل نوعا من الفخامة والتميز</p>
+                      <a href="{{url('/reservation')}}" class="btn btn-primary bsec1">للحجز</a>
+                    </div>
+                  </div>
+                </div>
 
 
+
+
+                <div class="col-md-4">
+                <div class="card" style="height:360px;margin-bottom: 10px;background:rgba(3, 4, 24,0.5);border: #ff8d1e 1px solid; ">
+                    <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel" style=" border-bottom: #ff8d1e 1px solid;">
+                    <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img-top img-fluid" src="{{asset('img/g4.jpg')}}" style="height:200px;" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img-top img-fluid" src="{{asset('img/g5.jpg')}}"  style="height:200px;" alt="Second slide">
+                          </div>
+                  </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title text cl">التصميم التجاري</h4>
+                     
+                      <p class="card-text text cl">نبتكر فنبدع في تصميم يعكس هويتك ويحقق راحتك وراحة عملائك</p>
+                      <a href="{{url('/reservation')}}" class="btn btn-primary bsec1">للحجز</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class=" col-md-4">
+                <div class="card" style="height:360px;margin-bottom: 10px;background:rgba(3, 4, 24,0.5);border: #ff8d1e 1px solid; ">
+                    <div id="carouselExampleControls4" class="carousel slide" data-ride="carousel" style=" border-bottom: #ff8d1e 1px solid;">
+                    <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}" style="height:200px;" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}"  style="height:200px;" alt="Second slide">
+                          </div>
+                  </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleControls4" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls4" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body" style="direction: rtl !important;">
+                      <h4 class="card-title text cl">تصميم الحدائق</h4>
+                      <p class="card-text text cl" style="direction: rtl !important;" >نصمم من لا شي جنة في منزلك لتنعم فيها بالهدوء والراحة والجمال
+                        اسكتشات
+                      
+                      </p>
+                      <a href="{{url('/reservation')}}" class="btn btn-primary bsec1">للحجز</a>   
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card" style="height:360px;margin-bottom: 10px;background:rgba(3, 4, 24,0.5);border: #ff8d1e 1px solid; ">
+                    <div id="carouselExampleControls5" class="carousel slide" data-ride="carousel" style=" border-bottom: #ff8d1e 1px solid;">
+                    <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}" style="height:200px;" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}"  style="height:200px;" alt="Second slide">
+                          </div>
+                  </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleControls5" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls5" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title text cl">إكسسوارات وتحف</h4>
+                      <br><br>
+                      <p class="card-text text cl" style="display: flex; justify-content: right;">نختارها وننتقيها بعناية لكي نتميز بها ونصنع ماهو يخصنا</p>
+                      <br><br>
+                      <a href="{{url('/reservation')}}" class="btn btn-primary bsec1">للحجز</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4" >
+                <div class="card" style="height:360px;margin-bottom: 10px;background:rgba(3, 4, 24,0.5);border: #ff8d1e 1px solid; ">
+                    <div id="carouselExampleControlss" class="carousel slide" data-ride="carousel" style=" border-bottom: #ff8d1e 1px solid;">
+                    <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}" style="height:200px;" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img-top img-fluid" src="{{asset('img/d1.jpg')}}"  style="height:200px;" alt="Second slide">
+                          </div>
+                  </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleControlss" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControlss" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title text cl">اسكتشات</h4>
+                      <p class="card-text text cl">إبداع الرسم الأولي الحر للإيصال فكرة للعميل للفراغ وتبسيط الفكرة  الإسكِتْش يعتبر من أهم المهارات </p>
+                      <a href="{{url('/reservation')}}" class="btn btn-primary bsec1">للحجز</a>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
         <!-- END SECOND SECTION CATEGORY -->

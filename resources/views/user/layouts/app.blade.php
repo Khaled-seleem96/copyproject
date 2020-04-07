@@ -122,7 +122,10 @@
             <h4 class="text" style="margin-left: 30px;position: relative;color:white !important">0505563337</h4>
             <img src="img/phone.png" style="bottom: 30px;position: relative;right:20px" width="30px">
             <h4  class="text" style="margin-left: 30px;bottom: 40px;position: relative;color:white !important">0555024466</h4>
+            
             <ul class="social-footer2">
+            <h5  class="text" style="bottom: 30px;position: relative;color:white !important">janahalamirah@gmail.com</h5>
+
             <a style="color: white;size: 20px;" title="pinterest" target="_blank" href="https://www.pinterest.com/janahalamirah"><img src="img/pinterest .png" width="30" height="30"></a>
             <a href="https://www.facebook.com/janahalamirah" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="img/facebook.png"></a>
             <a href="https://twitter.com/janahalamirah" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="img/twitter.png"></a>
@@ -146,9 +149,10 @@
             <!-- END SECTION FOOTER -->
     </div>  
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="{{asset('js/script.js') }}"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/app.js') }}"></script>
+    <script src="{{asset('js/isotope.pkgd.min.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script src="{{asset('js/script.js') }}"></script>
 </body>
 </html>

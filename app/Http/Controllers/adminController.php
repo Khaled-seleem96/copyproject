@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Content;
@@ -82,8 +82,16 @@ class adminController extends Controller
     public function store(Request $request)
     {
         
-
         $x=new Content();
+        $validatedData = $request->validate([
+            'img'=>'required | mimes:jpeg,jpg,png,JPEG,JPG,PNG | max:2000',
+            'title'=>'required|max:255',
+
+        ]);
+
+        if ($validatedData) 
+        {
+        
         $img = $request->img;
         $img_name = time().$img->getClientOriginalName();
 
@@ -92,7 +100,7 @@ class adminController extends Controller
         $x->img = 'uploads/img/' . $img_name;
         $x->title=$request->title;
         $x->save();
-        return redirect()->route('content');
+        return redirect()->route('content') ->withErrors($validatedData) ;}
     }
 
     /**
@@ -129,39 +137,35 @@ class adminController extends Controller
         ]);
         return redirect()->back();
     }
+   
+    
 
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-
         $deleteOldImage = 0;
         //
         $x=Content::findOrFail($id);
-        
+        $validatedData = $request->validate([
+            'img'=>'required | mimes:jpeg,jpg,png,JPEG,JPG,PNG | max:2000',
+            'title'=>'required|max:255',
+
+        ]);
+
+        if ($validatedData) 
+        {
         $old_image = $x->img;
         $img = $request->img;
-
         if($img){
             $deleteOldImage = 1;
             $img_name = time().$img->getClientOriginalName();
             $img->move('uploads/img',$img_name);
             $x->img = 'uploads/img/' . $img_name;
         }
-        
         $x->title=$request->title;
-        
         if($x->save() && $deleteOldImage == 1){
                 File::delete($old_image);
         }
-        return redirect()->route('content');        
+        return redirect()->route('content')->withErrors($validatedData) ;}
     }
 
     public function destroy($id)

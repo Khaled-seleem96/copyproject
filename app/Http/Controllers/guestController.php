@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Guest;
 use App\Content;
+use App\Category;
+use App\video;
 class guestController extends Controller
 {
     /**
@@ -18,8 +20,10 @@ class guestController extends Controller
     }
     public function gallery()
     {
-        $x=Content::all();
-        return view('user.gallery')->with('data',$x);
+        $data=Content::all();
+        $categories = Category::all();
+        $video=video::all();
+        return view('user.gallery')->with('data',$data)->with('categories',$categories)->with('video',$video);
     }
 
     /**
